@@ -1,0 +1,14 @@
+D:\VSproject\poker\poker\bin\Debug\poker.exe.config
+D:\VSproject\poker\poker\obj\Debug\poker.csprojResolveAssemblyReference.cache
+D:\VSproject\poker\poker\obj\Debug\MainWindow.g.cs
+D:\VSproject\poker\poker\obj\Debug\App.g.cs
+D:\VSproject\poker\poker\obj\Debug\poker_MarkupCompile.cache
+D:\VSproject\poker\poker\obj\Debug\poker_MarkupCompile.lref
+D:\VSproject\poker\poker\bin\Debug\poker.exe
+D:\VSproject\poker\poker\bin\Debug\poker.pdb
+D:\VSproject\poker\poker\obj\Debug\MainWindow.baml
+D:\VSproject\poker\poker\obj\Debug\poker.g.resources
+D:\VSproject\poker\poker\obj\Debug\poker.Properties.Resources.resources
+D:\VSproject\poker\poker\obj\Debug\poker.csproj.GenerateResource.Cache
+D:\VSproject\poker\poker\obj\Debug\poker.exe
+D:\VSproject\poker\poker\obj\Debug\poker.pdb
