@@ -8,23 +8,22 @@ using System.Threading.Tasks;
 
 namespace poker.rules
 {
-    class card_type
+    public class card_type
     {
-        
-        
+        private int[] card;
+        private string[] cardtype;
+        private int[] cardlist;
 
         public card_type()
         {
-            int[] card = new int[52];
-            string[] cardtype = { "Diamond", "Heart", "Spade", "Club" };
-            int[] cardlist = newcardlist();
+            card = new int[52];
+            cardtype = new string[4]{ "Diamond", "Heart", "Spade", "Club" };
+            cardlist = new int[52];
         }
 
 
-        public int[] newcardlist()
+        public void newcardlist()
         {
-            int[] card = new int[52];            
-            int[] list = new int[52];
             int id;
             int site = 52;
             Random a = new  Random();
@@ -32,24 +31,24 @@ namespace poker.rules
             for (int x=0; x<52; x++)
             {
                 card[x] = x;
-                Console.WriteLine(card[x]);
+
+             //   Console.WriteLine(card[x]);
             }
 
             for (int y=0; y<52; y++)
             {
                 id = a.Next(0, site-1);
-                list[y] = card[id];
+                cardlist[y] = card[id];
                 site--;
                 card[id] = card[site];
                 
             }
-
-            
-            return list;
+      
         }
         public void Showlist()
         {
-
+            for (int y = 0; y < 52; y++)
+                Console.WriteLine(cardlist[y]);
         }
 
     }
