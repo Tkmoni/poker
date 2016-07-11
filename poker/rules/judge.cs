@@ -13,17 +13,57 @@ namespace poker.rules
         {
             for (int a = 0; a < 7; a++)
                 Inhand[a] = Inhand[a] % 13;
-            Quicksort(Inhand);
+            Quicksort(Inhand,0,Inhand.Length-1);
         }
-        private void QuicksortFunc(int[] Numbers)
+        private int QuicksortFunc(int[] Numbers,int left, int right)
         {
-            int j = 0;
-            int i = Numbers.Length-1;
-            Console.WriteLine(Numbers.ToString());   
-        }
-        private void Quicksort(int i, int n, int j)
-        {
+            int basenum = Numbers[left];
+            int i = left;
+            int j = right;
+            int temp;
 
+            while (true)
+            {
+                if (Numbers[i] < basenum && i < j)
+                    i++;
+                else if (Numbers[i] > basenum && i < j)
+                {
+                    temp = Numbers[j];
+                    Numbers[i] = Numbers[j];
+                    Numbers[j] = temp;
+                    j--;
+                }
+                else if (Numbers[j] < basenum && i < j)
+                {
+                    temp = Numbers[j];
+                    Numbers[i] = Numbers[j];
+                    Numbers[j] = temp;
+                    i++;
+                }
+                else if (Numbers[j] > basenum && i < j)
+                {
+                    j--;
+                }
+                else if (i == j)
+                {
+                    Numbers[i] = basenum;
+                    break;
+                }
+                return i;
+
+            }
+            Console.WriteLine(Numbers.ToString());   
+            return i;
+
+        }
+        private void Quicksort(int[] n, int left, int right)
+        {
+            if (left<right)
+            {
+                int i = QuicksortFunc(n, left, right);
+                QuicksortFunc(n, left, i - 1);
+                QuicksortFunc(n, i+1, right);
+            }
         }
     }
 }
