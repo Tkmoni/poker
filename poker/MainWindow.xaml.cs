@@ -27,30 +27,42 @@ namespace poker
             InitializeComponent();
         }
 
+        struct card
+        {
+            int[] cardinHand = new int[2];
+        }
+
+
         public void mmain()
         {
-            card_type game = new card_type();
+
+
+            //card_type game = new card_type();
             int[] pile = new int[52];
             //pile = game.newcardlist();
             int[,] PlayerCard = new int[10, 2];
-            int Nplayer = Int32.Parse(playerNB.Text);
-            int Lplayer = Int32.Parse(playerLoc.Text);
-            int CardNow = 0;
+            int PlayerNumber = Int32.Parse(playerNB.Text);
+            int PlayerLocation = Int32.Parse(playerLoc.Text);
             //for (int a = 0; Nplayer > a; a++, CardNow++)
             //{
             //    PlayerCard[a, 0] = pile[CardNow];
             //    CardNow++;
             //    PlayerCard[a, 1] = pile[CardNow];
             //}
-            ShowCardOnTable(PlayerCard, Nplayer, Lplayer);
+            for (int a = 0; PlayerNumber > a; a++)
+            {
+                int[] temp = game.SendHandCard();
+                temp.CopyTo(PlayerCard,0);
+            }
 
+
+            ShowCardOnTable(PlayerCard, PlayerNumber, PlayerLocation);
         }
 
         private void StartGame(object sender, RoutedEventArgs e)
         {
             game.newcardlist();
             mmain();
-            
         }
 
         public void ShowCardOnTable(int[,] Playercard, int Nplayer, int Lplayer)
@@ -79,6 +91,15 @@ namespace poker
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             game.Showlist();
+            JudgeWin();
+        }
+
+        private void JudgeWin()
+        {
+            game.SendHandCard();
+            int[] PlayerNo = new int[2 + game.getRound()];
+            for (int a = 0; a<2+game.getRound(); a++)
+                Console.Write(PlayerNo[a]);
         }
     }
 }

@@ -9,12 +9,21 @@ namespace poker.rules
 {
     class judge
     {
+        private int[] sortnumber;
+
+        public judge(int[] number)
+        {
+            sortnumber = number;
+
+        }
+
         private void cont(int[] Inhand)
         {
             for (int a = 0; a < 7; a++)
                 Inhand[a] = Inhand[a] % 13;
             Quicksort(Inhand,0,Inhand.Length-1);
         }
+
         private int QuicksortFunc(int[] Numbers,int left, int right)
         {
             int basenum = Numbers[left];
@@ -50,12 +59,10 @@ namespace poker.rules
                     break;
                 }
                 return i;
-
-            }
-            Console.WriteLine(Numbers.ToString());   
+            } 
             return i;
-
         }
+
         private void Quicksort(int[] n, int left, int right)
         {
             if (left<right)
@@ -65,5 +72,20 @@ namespace poker.rules
                 QuicksortFunc(n, i+1, right);
             }
         }
+
+        private void ShowLists()
+        {
+            for (int x = 0; x < 7; x++)
+            {
+                Console.WriteLine(sortnumber[x]);
+            }
+        }
+
+        private void match()
+        {
+
+        }
+
+
     }
 }
