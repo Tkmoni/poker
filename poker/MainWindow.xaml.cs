@@ -27,16 +27,9 @@ namespace poker
             InitializeComponent();
         }
 
-        struct card
-        {
-            int[] cardinHand = new int[2];
-        }
-
 
         public void mmain()
         {
-
-
             //card_type game = new card_type();
             int[] pile = new int[52];
             //pile = game.newcardlist();
@@ -52,7 +45,8 @@ namespace poker
             for (int a = 0; PlayerNumber > a; a++)
             {
                 int[] temp = game.SendHandCard();
-                temp.CopyTo(PlayerCard,0);
+                PlayerCard[a, 0] = temp[0];
+                PlayerCard[a, 1] = temp[1];
             }
 
 
@@ -61,8 +55,16 @@ namespace poker
 
         private void StartGame(object sender, RoutedEventArgs e)
         {
+            Gamestate.Text = "";
+
             game.newcardlist();
+
+            Gamestate.Inlines.Add("\nGame has been started!");
+
             mmain();
+
+            Gamestate.Inlines.Add("\nSending handcards!");
+            Gamestate.Inlines.Add("\nYour cards is " + "*****");
         }
 
         public void ShowCardOnTable(int[,] Playercard, int Nplayer, int Lplayer)
@@ -80,7 +82,7 @@ namespace poker
         private void Giveup(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Gameover");
-            
+            Gamestate.Inlines.Add("\nGame is over. Waitting a new game!");
         }
 
         private void PlayerAsk()
@@ -88,7 +90,7 @@ namespace poker
             
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Resume(object sender, RoutedEventArgs e)
         {
             game.Showlist();
             JudgeWin();
@@ -96,10 +98,17 @@ namespace poker
 
         private void JudgeWin()
         {
-            game.SendHandCard();
+
             int[] PlayerNo = new int[2 + game.getRound()];
             for (int a = 0; a<2+game.getRound(); a++)
                 Console.Write(PlayerNo[a]);
+
+            
+        }
+
+        private void ExitGame(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

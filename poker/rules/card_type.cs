@@ -68,20 +68,36 @@ namespace poker.rules
                 Console.WriteLine(cardlist[y]&16);
         }
 
-        public void SendCard()
+        public int[] SendCard()
         {
-            movepoint += 2;
+            int[] pubcard;
+            if (round == 0)
+            {
+                pubcard = new int[3];
+                for (int x = 0; x < 3; x++)
+                {
+                    pubcard[x] = cardlist[movepoint];
+                    movepoint++;
+                }
+            }
+            else
+            {
+                pubcard = new int[1];
+                pubcard[0] = cardlist[movepoint];
+                movepoint++;
+            }
             round++;
+            return pubcard;
         }
 
         public int[] SendHandCard()
         {
-            int a = 3;
+            int a = 2;
             int[] x = new int[2];
 
             while (a-->0)
             {
-                x[a - 1] = cardlist[movepoint];
+                x[a] = cardlist[movepoint];
                 movepoint++;
             }
             return x;

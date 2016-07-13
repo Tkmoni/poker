@@ -73,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AI\AI1.cs" />
     <Compile Include="rules\card_type.cs" />
     <Compile Include="rules\judge.cs" />
     <Page Include="MainWindow.xaml">

@@ -10,11 +10,13 @@ namespace poker.rules
     class judge
     {
         private int[] sortnumber;
+        private int[] handcard;
 
         public judge(int[] number)
         {
             sortnumber = number;
-
+            handcard[0] = number[0];
+            handcard[1] = number[1];
         }
 
         private void cont(int[] Inhand)
@@ -83,7 +85,10 @@ namespace poker.rules
 
         private void match()
         {
-
+            if (handcard[0]==handcard[1])
+            {
+                ;
+            }
         }
 
 
